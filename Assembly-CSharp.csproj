@@ -59,6 +59,15 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\CameraController.cs" />
+     <Compile Include="Assets\Scripts\Old Script\BasicUI.cs" />
+     <Compile Include="Assets\Scripts\Old Script\FPSInput.cs" />
+     <Compile Include="Assets\Scripts\Old Script\Fireball.cs" />
+     <Compile Include="Assets\Scripts\Old Script\MouseLook.cs" />
+     <Compile Include="Assets\Scripts\Old Script\PlayerCharacter.cs" />
+     <Compile Include="Assets\Scripts\Old Script\RayShooter.cs" />
+     <Compile Include="Assets\Scripts\Old Script\ReactiveTarget.cs" />
+     <Compile Include="Assets\Scripts\Old Script\SceneControllerN.cs" />
+     <Compile Include="Assets\Scripts\Old Script\WanderingAI.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>/home/marco/Scrivania/Virtual Reality/DragonSword/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
