@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\CameraController.cs" />
+     <Compile Include="Assets\Scripts\EnemyMovement.cs" />
      <Compile Include="Assets\Scripts\Old Script\BasicUI.cs" />
      <Compile Include="Assets\Scripts\Old Script\FPSInput.cs" />
      <Compile Include="Assets\Scripts\Old Script\Fireball.cs" />
