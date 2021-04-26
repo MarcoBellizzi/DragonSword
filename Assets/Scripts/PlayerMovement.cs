@@ -19,12 +19,10 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
     }
     
-
-    // Update is called once per frame
     void Update()
     {
         Move() ;
-
+        
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             StartCoroutine(Attack());
@@ -53,7 +51,6 @@ public class PlayerMovement : MonoBehaviour
         }
             
         moveDirection *= moveSpeed;
-
         controller.Move(moveDirection * Time.deltaTime);
 
     }
@@ -77,10 +74,10 @@ public class PlayerMovement : MonoBehaviour
     
     private IEnumerator Attack()
     {
-        animator.SetLayerWeight(animator.GetLayerIndex("Attack layer"), 1);
+        animator.SetLayerWeight(animator.GetLayerIndex("Attack"), 1);
         animator.SetTrigger("Attack");
         
         yield return new WaitForSeconds(0.9f);
-        animator.SetLayerWeight(animator.GetLayerIndex("Attack layer"), 0);
+        animator.SetLayerWeight(animator.GetLayerIndex("Attack"), 0);
     }
 }

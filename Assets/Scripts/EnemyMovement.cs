@@ -14,47 +14,47 @@ public class EnemyMovement : MonoBehaviour
     private Animator animator;
 
     public NavMeshAgent agent;
+
+    private bool attack;
     
     void Start()
     {
         controller = GetComponent<CharacterController>();
         animator = GetComponentInChildren<Animator>();
+        attack = false;
     }
-    
 
-    // Update is called once per frame
     void Update()
     {
         Move() ;
-
-    //    if (Input.GetKeyDown(KeyCode.Mouse0))
-    //    {
-    //        StartCoroutine(Attack());
-    //    }
     }
 
     private void Move()
     {
         GameObject player = GameObject.Find("Player");
 
-        if (Vector3.Distance(player.transform.position, controller.transform.position) < 2f)
+        if (!attack)
         {
-            StartCoroutine(Attack());
-        }
-        else
-        {
-            if (Vector3.Distance(player.transform.position, controller.transform.position) < 6f)
+            if (Vector3.Distance(player.transform.position, controller.transform.position) < 2f)
             {
-                Walk();
-                agent.SetDestination(player.transform.position);
+                StartCoroutine(Attack());
             }
             else
             {
-                Idle();
+                if (Vector3.Distance(player.transform.position, controller.transform.position) < 6f)
+                {
+                    Walk();
+                    agent.SetDestination(player.transform.position);
+                }
+                else
+                {
+                    Idle();
+                }
             }
         }
-        
 
+        
+        
     }
 
     private void Idle()
@@ -69,10 +69,12 @@ public class EnemyMovement : MonoBehaviour
 
     private IEnumerator Attack()
     {
-        animator.SetLayerWeight(animator.GetLayerIndex("Attack layer"), 1);
+        animator.SetLayerWeight(animator.GetLayerIndex("Attack"), 1);
         animator.SetTrigger("Attack");
+        attack = true;
         
         yield return new WaitForSeconds(0.9f);
-        animator.SetLayerWeight(animator.GetLayerIndex("Attack layer"), 0);
+        animator.SetLayerWeight(animator.GetLayerIndex("Attack"), 0);
+        attack = false;
     }
 }
