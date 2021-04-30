@@ -13,17 +13,23 @@ public class PlayerMovement : MonoBehaviour
 
     private CharacterController controller;
     private Animator animator;
+    private bool isAttacking;
+
+    public int lifePoints;
+    
     void Start()
     {
         controller = GetComponent<CharacterController>();
         animator = GetComponentInChildren<Animator>();
+        isAttacking = false;
+        lifePoints = 100;
     }
     
     void Update()
     {
         Move() ;
         
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !isAttacking)
         {
             StartCoroutine(Attack());
         }
@@ -32,9 +38,8 @@ public class PlayerMovement : MonoBehaviour
     private void Move()
     {
         float moveZ = Input.GetAxis("Vertical");
-        float moveX = Input.GetAxis("Horizontal");
 
-        moveDirection = new Vector3(moveX, 0, moveZ);
+        moveDirection = new Vector3(0, 0, moveZ);
         moveDirection = transform.TransformDirection(moveDirection);  // diventano variabili locali
 
         if (moveDirection != Vector3.zero && !Input.GetKey(KeyCode.LeftShift))
@@ -74,10 +79,12 @@ public class PlayerMovement : MonoBehaviour
     
     private IEnumerator Attack()
     {
+        isAttacking = true;
         animator.SetLayerWeight(animator.GetLayerIndex("Attack"), 1);
         animator.SetTrigger("Attack");
         
         yield return new WaitForSeconds(0.9f);
         animator.SetLayerWeight(animator.GetLayerIndex("Attack"), 0);
+        isAttacking = false;
     }
 }

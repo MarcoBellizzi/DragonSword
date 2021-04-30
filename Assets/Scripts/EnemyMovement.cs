@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -9,19 +10,18 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private float walkSpeed;
 
     private Vector3 moveDirection;
-
     private CharacterController controller;
     private Animator animator;
-
     public NavMeshAgent agent;
-
     private bool attack;
+    private GameObject player;
     
     void Start()
     {
         controller = GetComponent<CharacterController>();
         animator = GetComponentInChildren<Animator>();
         attack = false;
+        player = GameObject.Find("Player");
     }
 
     void Update()
@@ -31,17 +31,15 @@ public class EnemyMovement : MonoBehaviour
 
     private void Move()
     {
-        GameObject player = GameObject.Find("Player");
-
         if (!attack)
         {
-            if (Vector3.Distance(player.transform.position, controller.transform.position) < 2f)
+            if (Vector3.Distance(player.transform.position, controller.transform.position) < 1.9f)
             {
                 StartCoroutine(Attack());
             }
             else
             {
-                if (Vector3.Distance(player.transform.position, controller.transform.position) < 6f)
+                if (Vector3.Distance(player.transform.position, controller.transform.position) < 8f)
                 {
                     Walk();
                     agent.SetDestination(player.transform.position);
@@ -52,9 +50,6 @@ public class EnemyMovement : MonoBehaviour
                 }
             }
         }
-
-        
-        
     }
 
     private void Idle()
@@ -69,6 +64,9 @@ public class EnemyMovement : MonoBehaviour
 
     private IEnumerator Attack()
     {
+        player.GetComponent<PlayerMovement>().lifePoints -= 10;
+        Debug.Log("player attaccato: " + player.GetComponent<PlayerMovement>().lifePoints);
+
         animator.SetLayerWeight(animator.GetLayerIndex("Attack"), 1);
         animator.SetTrigger("Attack");
         attack = true;
