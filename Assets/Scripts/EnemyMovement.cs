@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -65,7 +63,7 @@ public class EnemyMovement : MonoBehaviour
     private IEnumerator Attack()
     {
         player.GetComponent<PlayerMovement>().lifePoints -= 10;
-        Debug.Log("player attaccato: " + player.GetComponent<PlayerMovement>().lifePoints);
+        player.GetComponent<PlayerMovement>().healthBar.value -= 10;
 
         animator.SetLayerWeight(animator.GetLayerIndex("Attack"), 1);
         animator.SetTrigger("Attack");

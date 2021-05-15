@@ -1,6 +1,6 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -16,13 +16,20 @@ public class PlayerMovement : MonoBehaviour
     private bool isAttacking;
 
     public int lifePoints;
+    public Slider healthBar;
+    
+    // lista di nemici
     
     void Start()
     {
+        lifePoints = 100;
+        healthBar.maxValue = lifePoints;
+        
         controller = GetComponent<CharacterController>();
         animator = GetComponentInChildren<Animator>();
         isAttacking = false;
-        lifePoints = 100;
+        
+        // accediamo a forest e a tutti i suoi figli e ci riempiamo la lista
     }
     
     void Update()
@@ -33,6 +40,19 @@ public class PlayerMovement : MonoBehaviour
         {
             StartCoroutine(Attack());
         }
+
+        healthBar.gameObject.SetActive(false);
+
+        if (lifePoints < 60)
+        {
+            healthBar.gameObject.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().color = Color.yellow; 
+        }
+        if (lifePoints < 30)
+        {
+            healthBar.gameObject.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().color = Color.red; 
+        }
+        
+        
     }
 
     private void Move()
@@ -83,8 +103,14 @@ public class PlayerMovement : MonoBehaviour
         animator.SetLayerWeight(animator.GetLayerIndex("Attack"), 1);
         animator.SetTrigger("Attack");
         
+        
+        // se stiamo collidendo con un nemico (quale nemico?) { scorrere la lista }
+        // togliergli la vita
+        
+        
         yield return new WaitForSeconds(0.9f);
         animator.SetLayerWeight(animator.GetLayerIndex("Attack"), 0);
         isAttacking = false;
     }
+
 }
