@@ -41,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(Attack());
         }
 
-        healthBar.gameObject.SetActive(false);
+     //   healthBar.gameObject.SetActive(false);
 
         if (lifePoints < 60)
         {
