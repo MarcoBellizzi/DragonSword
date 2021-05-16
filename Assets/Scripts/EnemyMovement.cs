@@ -16,6 +16,7 @@ public class EnemyMovement : MonoBehaviour
     private GameObject player;
     private float lifePoints;
     private bool demaging;
+    private bool die;
     
     void Start()
     {
@@ -25,22 +26,27 @@ public class EnemyMovement : MonoBehaviour
         player = GameObject.Find("Player");
         lifePoints = 100;
         demaging = false;
+        die = false;
     }
 
     void Update()
     {
         if (lifePoints <= 0)
         {
+            die = true;
             StartCoroutine(Die());
         }
-        
-        Move() ;
+
+        if (!die)
+        {
+            Move();
+        }
     }
 
     private void Move()
     {
         
-        if (Input.GetKeyDown(KeyCode.Mouse0) && !demaging && Vector3.Distance(player.transform.position, controller.transform.position) < 1.9f)
+        if (!demaging && Input.GetKeyDown(KeyCode.Mouse0) && Vector3.Distance(player.transform.position, controller.transform.position) < 1.9f)
         {
             StartCoroutine(Hit());
         }
@@ -78,22 +84,34 @@ public class EnemyMovement : MonoBehaviour
 
     private IEnumerator Attack()
     {
-        player.GetComponent<PlayerMovement>().lifePoints -= 10;
-        player.GetComponent<PlayerMovement>().healthBar.value -= 10;
-
         animator.SetLayerWeight(animator.GetLayerIndex("Attack"), 1);
         animator.SetTrigger("Attack");
         attack = true;
+
+        // da aggiustare.. non va benissimo il fatto che inizia l 'attacco, toglie la vita, finisce l'attacco
+        // sembra che il finisce l'attacco non va benissimo e toglie piu velocemente vita rispetto alla
+        // velocità d'attacco
         
-        yield return new WaitForSeconds(0.9f);
+        yield return new WaitForSeconds(0.45f);
+        
+        player.GetComponent<PlayerMovement>().lifePoints -= 5;
+        player.GetComponent<PlayerMovement>().healthBar.value -= 5;
+
+        StartCoroutine(EndAttack());
+    }
+
+    private IEnumerator EndAttack()
+    {
+        yield return new WaitForSeconds(0.45f);
         animator.SetLayerWeight(animator.GetLayerIndex("Attack"), 0);
         attack = false;
     }
+    
 
     private IEnumerator Hit()
     {
         demaging = true;
-        lifePoints -= 50;
+        lifePoints -= 40;
         Debug.Log(lifePoints);
         yield return new WaitForSeconds(0.9f);
         demaging = false;
@@ -102,8 +120,9 @@ public class EnemyMovement : MonoBehaviour
     private IEnumerator Die()
     {
         this.transform.Rotate(-75, 0, 0);
+        animator.SetFloat("Speed", 0);
 
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(2f);
 
         Destroy(this.gameObject);        
     }
