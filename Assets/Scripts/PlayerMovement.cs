@@ -1,11 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
     
-    [SerializeField] private float moveSpeed;
+    private float moveSpeed;
     [SerializeField] private float walkSpeed;
     [SerializeField] private float runSpeed;
 
@@ -17,9 +18,7 @@ public class PlayerMovement : MonoBehaviour
 
     public int lifePoints;
     public Slider healthBar;
-    
-    // lista di nemici
-    
+
     void Start()
     {
         lifePoints = 100;
@@ -28,8 +27,6 @@ public class PlayerMovement : MonoBehaviour
         controller = GetComponent<CharacterController>();
         animator = GetComponentInChildren<Animator>();
         isAttacking = false;
-        
-        // accediamo a forest e a tutti i suoi figli e ci riempiamo la lista
     }
     
     void Update()
@@ -41,7 +38,6 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(Attack());
         }
 
-     //   healthBar.gameObject.SetActive(false);
 
         if (lifePoints < 60)
         {
@@ -60,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
         float moveZ = Input.GetAxis("Vertical");
 
         moveDirection = new Vector3(0, 0, moveZ);
-        moveDirection = transform.TransformDirection(moveDirection);  // diventano variabili locali
+        moveDirection = transform.TransformDirection(moveDirection);  // diventano variabili globali
 
         if (moveDirection != Vector3.zero && !Input.GetKey(KeyCode.LeftShift))
         {
@@ -76,6 +72,7 @@ public class PlayerMovement : MonoBehaviour
         }
             
         moveDirection *= moveSpeed;
+        moveDirection += new Vector3(0, -5f, 0);
         controller.Move(moveDirection * Time.deltaTime);
 
     }
@@ -102,15 +99,11 @@ public class PlayerMovement : MonoBehaviour
         isAttacking = true;
         animator.SetLayerWeight(animator.GetLayerIndex("Attack"), 1);
         animator.SetTrigger("Attack");
-        
-        
-        // se stiamo collidendo con un nemico (quale nemico?) { scorrere la lista }
-        // togliergli la vita
-        
-        
+
         yield return new WaitForSeconds(0.9f);
+        
         animator.SetLayerWeight(animator.GetLayerIndex("Attack"), 0);
         isAttacking = false;
     }
-
+    
 }
