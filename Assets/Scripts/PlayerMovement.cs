@@ -19,6 +19,10 @@ public class PlayerMovement : MonoBehaviour
     public int lifePoints;
     public Slider healthBar;
 
+    private GameObject sfera;
+    private bool lanciata;
+    float y;
+
     void Start()
     {
         lifePoints = 100;
@@ -27,11 +31,32 @@ public class PlayerMovement : MonoBehaviour
         controller = GetComponent<CharacterController>();
         animator = GetComponentInChildren<Animator>();
         isAttacking = false;
+        
+        sfera = GameObject.Find("Sphere");
+        lanciata = false;
     }
     
     void Update()
     {
         Move() ;
+
+        if (Input.GetKey(KeyCode.Mouse1))
+        {
+            sfera.transform.localScale *= 1.01f;
+        }
+
+       
+        if (Input.GetKeyUp(KeyCode.Mouse1))
+        {
+            y = 0.5f;
+            lanciata = true;
+        }
+
+        if (lanciata)
+        {
+            
+            sfera.GetComponent<CharacterController>().Move(transform.TransformDirection(new Vector3(0, y-=0.01f, 0.2f)));
+        }
         
         if (Input.GetKeyDown(KeyCode.Mouse0) && !isAttacking)
         {
@@ -50,6 +75,7 @@ public class PlayerMovement : MonoBehaviour
         
         
     }
+
 
     private void Move()
     {
@@ -105,5 +131,9 @@ public class PlayerMovement : MonoBehaviour
         animator.SetLayerWeight(animator.GetLayerIndex("Attack"), 0);
         isAttacking = false;
     }
-    
+
+    private void OnCollisionEnter(Collision other)
+    {
+        
+    }
 }

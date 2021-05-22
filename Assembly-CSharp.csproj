@@ -70,7 +70,9 @@
      <Compile Include="Assets\Scripts\Old Script\ReactiveTarget.cs" />
      <Compile Include="Assets\Scripts\Old Script\SceneControllerN.cs" />
      <Compile Include="Assets\Scripts\Old Script\WanderingAI.cs" />
+     <Compile Include="Assets\Scripts\OrbitCamera.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\PlayerOrbitMovement2.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>/home/marco/Scrivania/Virtual Reality/DragonSword/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
