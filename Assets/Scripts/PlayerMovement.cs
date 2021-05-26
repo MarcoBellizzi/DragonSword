@@ -5,74 +5,65 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
-    
-    private float moveSpeed;
     [SerializeField] private float walkSpeed;
     [SerializeField] private float runSpeed;
-
+    private float moveSpeed;
     private Vector3 moveDirection;
-
     private CharacterController controller;
     private Animator animator;
     private bool isAttacking;
-
-    public int lifePoints;
+    public float lifePoints;
     public Slider healthBar;
-
-    private GameObject sfera;
-    private bool lanciata;
-    float y;
+    public Text text;
 
     void Start()
     {
-        lifePoints = 100;
+        lifePoints = 100f;
         healthBar.maxValue = lifePoints;
-        
         controller = GetComponent<CharacterController>();
         animator = GetComponentInChildren<Animator>();
         isAttacking = false;
-        
-        sfera = GameObject.Find("Sphere");
-        lanciata = false;
+        text.text = "0";
     }
     
     void Update()
     {
         Move() ;
 
-        if (Input.GetKey(KeyCode.Mouse1))
-        {
-            sfera.transform.localScale *= 1.01f;
-        }
-
-       
-        if (Input.GetKeyUp(KeyCode.Mouse1))
-        {
-            y = 0.5f;
-            lanciata = true;
-        }
-
-        if (lanciata)
-        {
-            
-            sfera.GetComponent<CharacterController>().Move(transform.TransformDirection(new Vector3(0, y-=0.01f, 0.2f)));
-        }
-        
         if (Input.GetKeyDown(KeyCode.Mouse0) && !isAttacking)
         {
             StartCoroutine(Attack());
         }
 
-
-        if (lifePoints < 60)
+        if (lifePoints > 60f)
+        {
+            healthBar.gameObject.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().color = Color.green; 
+        }
+        if (lifePoints > 30f && lifePoints <= 60f)
         {
             healthBar.gameObject.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().color = Color.yellow; 
         }
-        if (lifePoints < 30)
+        if (lifePoints < 30f)
         {
             healthBar.gameObject.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().color = Color.red; 
         }
+
+        if (Input.GetKeyDown(KeyCode.H) && Managers.Inventory.GetItemCount("Salute") > 0)
+        {
+            lifePoints += 20f;
+            healthBar.value += 20f;
+
+            if (lifePoints > 100f)
+            {
+                lifePoints = 100f;
+                healthBar.value = 100f;
+            }
+
+            Managers.Inventory.ConsumeItem("Salute");
+
+        }
         
+        text.text = Managers.Inventory.GetItemCount("Salute").ToString();
         
     }
 
@@ -82,7 +73,7 @@ public class PlayerMovement : MonoBehaviour
         float moveZ = Input.GetAxis("Vertical");
 
         moveDirection = new Vector3(0, 0, moveZ);
-        moveDirection = transform.TransformDirection(moveDirection);  // diventano variabili globali
+        moveDirection = transform.TransformDirection(moveDirection);
 
         if (moveDirection != Vector3.zero && !Input.GetKey(KeyCode.LeftShift))
         {
@@ -131,9 +122,5 @@ public class PlayerMovement : MonoBehaviour
         animator.SetLayerWeight(animator.GetLayerIndex("Attack"), 0);
         isAttacking = false;
     }
-
-    private void OnCollisionEnter(Collision other)
-    {
-        
-    }
+    
 }

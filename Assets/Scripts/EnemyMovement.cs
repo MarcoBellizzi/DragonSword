@@ -9,14 +9,13 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private float hittingPlayerDistance;
 
     private Vector3 moveDirection;
-    private CharacterController controller;
     private Animator animator;
     
     public NavMeshAgent agent;
     
     private GameObject player;
     
-    private float lifePoints;
+    public float lifePoints;
     private bool demaging;
     private bool attack;
     private bool die;
@@ -25,7 +24,6 @@ public class EnemyMovement : MonoBehaviour
     
     void Start()
     {
-        controller = GetComponent<CharacterController>();
         animator = GetComponentInChildren<Animator>();
         attack = false;
         player = GameObject.Find("Player");
@@ -51,20 +49,20 @@ public class EnemyMovement : MonoBehaviour
     private void Move()
     {
         
-        if (!demaging && Input.GetKeyDown(KeyCode.Mouse0) && Vector3.Distance(player.transform.position, controller.transform.position) < hittingPlayerDistance)
+        if (!demaging && Input.GetKeyDown(KeyCode.Mouse0) && Vector3.Distance(player.transform.position, transform.position) < hittingPlayerDistance)
         {
             StartCoroutine(Hit());
         }
         
         if (!attack)
         {
-            if (Vector3.Distance(player.transform.position, controller.transform.position) < hittingPlayerDistance)
+            if (Vector3.Distance(player.transform.position, transform.position) < hittingPlayerDistance)
             {
                 StartCoroutine(Attack());
             }
             else
             {
-                if (Vector3.Distance(player.transform.position, controller.transform.position) < detectingPlayerDistance)
+                if (Vector3.Distance(player.transform.position, transform.position) < detectingPlayerDistance)
                 {
                     Walk();
                     agent.SetDestination(player.transform.position);
@@ -108,7 +106,6 @@ public class EnemyMovement : MonoBehaviour
     {
         demaging = true;
         lifePoints -= 40;
-        Debug.Log(lifePoints);
         
         yield return new WaitForSeconds(0.9f);
         
@@ -117,12 +114,12 @@ public class EnemyMovement : MonoBehaviour
     
     private IEnumerator Die()
     {
-        controller.transform.Rotate(-75, 0, 0);
+        transform.Rotate(90, 0, 0);
         animator.SetFloat("Speed", 0);
 
         yield return new WaitForSeconds(3f);
 
-        Destroy(this.gameObject);        
+        Destroy(gameObject);        
     }
 
 }

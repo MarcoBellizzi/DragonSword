@@ -21,10 +21,10 @@ MonoBehaviour:
     y: 30
     width: 1366
     height: 629
-  m_MinSize: {x: 878, y: 492}
-  m_MaxSize: {x: 14001, y: 14042}
+  m_MinSize: {x: 877, y: 471}
+  m_MaxSize: {x: 14001, y: 14021}
   vertical: 0
-  controlID: 119
+  controlID: 135
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -72,10 +72,10 @@ MonoBehaviour:
     y: 0
     width: 1090
     height: 629
-  m_MinSize: {x: 603, y: 492}
-  m_MaxSize: {x: 10001, y: 14042}
+  m_MinSize: {x: 602, y: 471}
+  m_MaxSize: {x: 10001, y: 14021}
   vertical: 1
-  controlID: 120
+  controlID: 136
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -97,10 +97,10 @@ MonoBehaviour:
     y: 0
     width: 1090
     height: 358
-  m_MinSize: {x: 603, y: 221}
-  m_MaxSize: {x: 6051, y: 4021}
+  m_MinSize: {x: 602, y: 200}
+  m_MaxSize: {x: 6050, y: 4000}
   vertical: 0
-  controlID: 121
+  controlID: 137
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -120,8 +120,8 @@ MonoBehaviour:
     y: 0
     width: 327
     height: 358
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 6}
   m_Panes:
   - {fileID: 6}
@@ -158,23 +158,23 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 66fbffff3836000068370000a2390000
+      m_ExpandedIDs: 66fbffff96370000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: Sphere
+        m_OriginalName: Sphere
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: 14282
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
-        m_ClientGUIView: {fileID: 0}
+        m_ClientGUIView: {fileID: 5}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -247,9 +247,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -112.870834, y: 0.8388892, z: -126.13479}
+    m_Target: {x: -113.644684, y: 2.179464, z: -124.848}
     speed: 2
-    m_Value: {x: -112.870834, y: 0.8388892, z: -126.13479}
+    m_Value: {x: -113.644684, y: 2.179464, z: -124.848}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -295,13 +295,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.1259166, y: 0.055207714, z: -0.005245748, w: 0.9908159}
+    m_Target: {x: 0.013478875, y: -0.671795, z: 0.014631733, w: 0.7409179}
     speed: 2
-    m_Value: {x: 0.12587592, y: 0.055189878, z: -0.0052440534, w: 0.9904958}
+    m_Value: {x: 0.013583726, y: -0.66599834, z: 0.014525413, w: 0.7456881}
   m_Size:
-    m_Target: 2.1350017
+    m_Target: 2.5330286
     speed: 2
-    m_Value: 2.1350017
+    m_Value: 2.2330287
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -667,20 +667,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets/Textures
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/Textures
   m_LastFoldersGridSize: -1
   m_LastProjectPath: /home/marco/Scrivania/Virtual Reality/DragonSword
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 106}
-    m_SelectedIDs: 16440000
-    m_LastClickedID: 17430
-    m_ExpandedIDs: 00000000f4430000f6430000f84300000044000000ca9a3b
+    scrollPos: {x: 0, y: 90}
+    m_SelectedIDs: 7e440000
+    m_LastClickedID: 17534
+    m_ExpandedIDs: 00000000584400005a4400005c44000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -708,7 +708,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000f4430000f6430000f8430000
+    m_ExpandedIDs: 00000000584400005a4400005c440000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
