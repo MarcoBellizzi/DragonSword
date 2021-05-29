@@ -43,10 +43,10 @@ public class Managers : MonoBehaviour
             }
             if (numReady > lastReady)
             {
-                Debug.Log("Progress: " + numReady + "/" + numModules);
+     //           Debug.Log("Progress: " + numReady + "/" + numModules);
             }
             yield return null;
         }
-        Debug.Log("All managers started up");
+   //     Debug.Log("All managers started up");
     }
 }

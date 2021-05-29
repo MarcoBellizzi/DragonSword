@@ -51,12 +51,10 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.H) && Managers.Inventory.GetItemCount("Salute") > 0)
         {
             lifePoints += 20f;
-            healthBar.value += 20f;
 
             if (lifePoints > 100f)
             {
                 lifePoints = 100f;
-                healthBar.value = 100f;
             }
 
             Managers.Inventory.ConsumeItem("Salute");
@@ -64,7 +62,9 @@ public class PlayerMovement : MonoBehaviour
         }
         
         text.text = Managers.Inventory.GetItemCount("Salute").ToString();
-        
+
+        healthBar.value = lifePoints;
+
     }
 
 

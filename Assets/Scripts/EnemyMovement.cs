@@ -92,7 +92,6 @@ public class EnemyMovement : MonoBehaviour
         attack = true;
 
         player.GetComponent<PlayerMovement>().lifePoints -= 5;
-        player.GetComponent<PlayerMovement>().healthBar.value -= 5;
 
         yield return new WaitForSeconds(0.9f);
 

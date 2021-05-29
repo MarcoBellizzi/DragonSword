@@ -10,7 +10,7 @@ public class PlayerManager : MonoBehaviour, IGameManager
     public int barValueDamage { get; private set; }
     public void Startup()
     {
-        Debug.Log("Player manager starting...");
+  //      Debug.Log("Player manager starting...");
         health = 100;
         healthPackValue = 20;
         status = ManagerStatus.Started;

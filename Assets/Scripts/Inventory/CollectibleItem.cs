@@ -8,7 +8,7 @@ public class CollectibleItem : MonoBehaviour
     {
         if (other.GetComponent<CharacterController>())
         {
-            Debug.Log("Item collected: " + itemName);
+        //    Debug.Log("Item collected: " + itemName);
             Managers.Inventory.AddItem(itemName);
             Destroy(this.gameObject);
         }

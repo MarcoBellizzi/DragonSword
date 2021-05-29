@@ -4,35 +4,11 @@ using System.Collections.Generic;
 public class InventoryManager : MonoBehaviour, IGameManager
 {
     public ManagerStatus status { get; private set; }
-    /*private List<string> _items;
-
-    public void Startup()
-    {
-        Debug.Log("Inventory manager starting...");
-        _items = new List<string>();
-        status = ManagerStatus.Started;
-    }
-    
-    private void DisplayItems()
-    {
-        string itemDisplay = "List of Items: ";
-        foreach (string item in _items)
-        {
-            itemDisplay += item + " ";
-        }
-        Debug.Log(itemDisplay);
-    }
-    
-    public void AddItem(string name)
-    {
-        _items.Add(name);
-        DisplayItems();
-    }*/
 
     private Dictionary<string, int> _items;
     public void Startup()
     {
-        Debug.Log("Inventory manager starting...");
+   //     Debug.Log("Inventory manager starting...");
         _items = new Dictionary<string, int>();
         status = ManagerStatus.Started;
     }
@@ -44,7 +20,7 @@ public class InventoryManager : MonoBehaviour, IGameManager
         {
             itemDisplay += item.Key + "(" + item.Value + ") ";
         }
-        Debug.Log(itemDisplay);
+  //      Debug.Log(itemDisplay);
     }
 
     public void AddItem(string name)

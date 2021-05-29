@@ -61,7 +61,9 @@
      <Compile Include="Assets\Models\Mountain Terrain\Misc\CameraDefault.cs" />
      <Compile Include="Assets\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\DragonMovement.cs" />
+     <Compile Include="Assets\Scripts\DragonSphere.cs" />
      <Compile Include="Assets\Scripts\EnemyMovement.cs" />
+     <Compile Include="Assets\Scripts\FireCollision.cs" />
      <Compile Include="Assets\Scripts\Inventory\CollectibleItem.cs" />
      <Compile Include="Assets\Scripts\Inventory\IGameManager.cs" />
      <Compile Include="Assets\Scripts\Inventory\InventoryManager.cs" />

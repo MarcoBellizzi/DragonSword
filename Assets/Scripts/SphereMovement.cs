@@ -19,7 +19,7 @@ public class SphereMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse1) && !lanciata)
         {
             transform.position = player.transform.position + player.transform.TransformDirection(new Vector3(0, 1, 1)); 
-            direzione = player.transform.TransformDirection(new Vector3(0, 0, 0.4f));
+            direzione = player.GetComponentInChildren<CameraController>().transform.TransformDirection(new Vector3(0, 0, 0.4f));
             lanciata = true;
         }
        
@@ -37,11 +37,26 @@ public class SphereMovement : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name.Contains("Enemy"))
+        if (!other.gameObject.name.Equals("Fire"))
         {
-            other.gameObject.GetComponent<EnemyMovement>().lifePoints -= 50;
+            if (other.gameObject.name.Contains("Enemy"))
+            {
+                other.gameObject.GetComponent<EnemyMovement>().lifePoints -= 50;
+            }
+            if (other.gameObject.name.Contains("Dragon"))
+            {
+                // capire pèerchè da un null reference exeption
+                if (!other.gameObject.GetComponent<DragonMovement>().svegliato)
+                {
+                    other.gameObject.GetComponent<DragonMovement>().animator.SetTrigger("svegliati");
+                    other.gameObject.GetComponent<DragonMovement>().svegliato = true;
+                }
+                other.gameObject.GetComponent<DragonMovement>().lifePoints -= 50;
+            }
+            
+            transform.position = player.transform.position + new Vector3(0, -10, 0);
+            lanciata = false;
         }
-        transform.position = player.transform.position + new Vector3(0, -10, 0);
-        lanciata = false;
+        
     }
 }
