@@ -69,6 +69,7 @@ public class EnemyMovement : MonoBehaviour
                 }
                 else
                 {
+                    
                     Idle();
                 }
             }

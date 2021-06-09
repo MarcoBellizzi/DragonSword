@@ -60,6 +60,7 @@
   <ItemGroup>
      <Compile Include="Assets\Models\Mountain Terrain\Misc\CameraDefault.cs" />
      <Compile Include="Assets\Scripts\CameraController.cs" />
+     <Compile Include="Assets\Scripts\DoorMovement.cs" />
      <Compile Include="Assets\Scripts\DragonMovement.cs" />
      <Compile Include="Assets\Scripts\DragonSphere.cs" />
      <Compile Include="Assets\Scripts\EnemyMovement.cs" />
@@ -80,7 +81,7 @@
      <Compile Include="Assets\Scripts\Old Script\SceneControllerN.cs" />
      <Compile Include="Assets\Scripts\Old Script\WanderingAI.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
-     <Compile Include="Assets\Scripts\SphereMovement.cs" />
+     <Compile Include="Assets\Scripts\PlayerSphere.cs" />
      <Compile Include="Assets\Scripts\ToRewiew\OrbitCamera.cs" />
      <Compile Include="Assets\Scripts\ToRewiew\PlayerOrbitMovement2.cs" />
  <Reference Include="Unity.Timeline.Editor">

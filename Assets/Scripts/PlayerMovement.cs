@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float walkSpeed;
     [SerializeField] private float runSpeed;
+    [SerializeField] private GameObject sferaPrefab;
+    private GameObject sfera;
     private float moveSpeed;
     private Vector3 moveDirection;
     private CharacterController controller;
@@ -15,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     public float lifePoints;
     public Slider healthBar;
     public Text text;
+    public bool lanciata;
 
     void Start()
     {
@@ -24,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
         isAttacking = false;
         text.text = "0";
+        lanciata = false;
     }
     
     void Update()
@@ -35,6 +39,23 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(Attack());
         }
 
+        if (Input.GetKeyDown(KeyCode.Mouse1) && !lanciata)
+        {
+            lanciata = true;
+            sfera = Instantiate(sferaPrefab, transform.position + transform.TransformDirection(new Vector3(0, 1, 0)), GameObject.Find("Main Camera").transform.rotation);
+        }
+
+        if (Input.GetKeyDown(KeyCode.H) && Managers.Inventory.GetItemCount("Salute") > 0)
+        {
+            lifePoints += 20f;
+            if (lifePoints > 100f)
+            {
+                lifePoints = 100f;
+            }
+            Managers.Inventory.ConsumeItem("Salute");
+            text.text = Managers.Inventory.GetItemCount("Salute").ToString();
+        }
+        
         if (lifePoints > 60f)
         {
             healthBar.gameObject.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().color = Color.green; 
@@ -48,21 +69,6 @@ public class PlayerMovement : MonoBehaviour
             healthBar.gameObject.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().color = Color.red; 
         }
 
-        if (Input.GetKeyDown(KeyCode.H) && Managers.Inventory.GetItemCount("Salute") > 0)
-        {
-            lifePoints += 20f;
-
-            if (lifePoints > 100f)
-            {
-                lifePoints = 100f;
-            }
-
-            Managers.Inventory.ConsumeItem("Salute");
-
-        }
-        
-        text.text = Managers.Inventory.GetItemCount("Salute").ToString();
-
         healthBar.value = lifePoints;
 
     }
@@ -70,10 +76,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
-        float moveZ = Input.GetAxis("Vertical");
-
-        moveDirection = new Vector3(0, 0, moveZ);
-        moveDirection = transform.TransformDirection(moveDirection);
+        moveDirection = transform.TransformDirection(new Vector3(0, 0, Input.GetAxis("Vertical")));
 
         if (moveDirection != Vector3.zero && !Input.GetKey(KeyCode.LeftShift))
         {
@@ -122,5 +125,5 @@ public class PlayerMovement : MonoBehaviour
         animator.SetLayerWeight(animator.GetLayerIndex("Attack"), 0);
         isAttacking = false;
     }
-    
+
 }

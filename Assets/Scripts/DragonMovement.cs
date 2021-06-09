@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class DragonMovement : MonoBehaviour
 {
     [SerializeField] private GameObject sferaPrefab;
+    private GameObject sfera1;
+    private GameObject sfera2;
     private ParticleSystem fire;
     public Animator animator;
     private GameObject player;
@@ -12,9 +15,9 @@ public class DragonMovement : MonoBehaviour
     private bool attacking;
     public NavMeshAgent agent;
     private int cont;
+    public Slider healthBar;
     public float lifePoints;
 
-    private GameObject prova;
     void Start()
     {
         animator = GetComponentInChildren<Animator>();
@@ -24,14 +27,17 @@ public class DragonMovement : MonoBehaviour
         attacking = false;
         fire = GetComponentInChildren<ParticleSystem>();
         lifePoints = 2000;
-
-        prova = new GameObject();
+        healthBar.gameObject.SetActive(false);
+        healthBar.maxValue = lifePoints;
     }
 
     void Update()
     {
+
+        healthBar.value = lifePoints;
         if (!svegliato && Vector3.Distance(transform.position, player.transform.position) < 15)
         {
+            healthBar.gameObject.SetActive(true);
             animator.SetTrigger("svegliati");
             svegliato = true;
         }
@@ -42,23 +48,22 @@ public class DragonMovement : MonoBehaviour
 
             if (cont < 400)
             {
-        //        transform.LookAt(player.transform.position);
+                transform.parent.transform.LookAt(player.transform.position);
             }
-            
+
             if (cont == 400)
             {
                 fire.Play();
                 animator.SetTrigger("sparaFuoco");
             }
 
-            if (cont == 640)
+            if (cont == 620)
             {
                 fire.Stop();
                 animator.SetTrigger("inseguici");
-           //     transform.LookAt(player.transform.position);
             }
 
-            if (cont > 640 && cont < 2000)
+            if (cont > 620 && cont < 2000)
             {
                 if (!attacking)
                 {
@@ -78,20 +83,21 @@ public class DragonMovement : MonoBehaviour
             if (cont > 2000 && cont < 2600)
             {
                 agent.SetDestination(player.transform.position);
-          //      transform.LookAt(player.transform);
             }
 
-            if (cont == 2500 || cont == 2560)
+            if (cont == 2500)
             {
-                Instantiate(sferaPrefab, transform.position + transform.TransformDirection(new Vector3(0, 2, 3)), transform.rotation);
-            }
-
-            if (cont == 2600)
-            {
-          //      transform.LookAt(new Vector3(-107, transform.position.y, 157));
+                sfera1 = Instantiate(sferaPrefab, transform.position + transform.TransformDirection(new Vector3(0, 3, 3)), transform.rotation);
+                sfera1.transform.LookAt(player.transform.position);
             }
             
-            if (cont == 3000)
+            if (cont == 2560)
+            {
+                sfera2 = Instantiate(sferaPrefab, transform.position + transform.TransformDirection(new Vector3(0, 3, 3)), transform.rotation);
+                sfera2.transform.LookAt(player.transform.position);
+            }
+            
+            if (cont == 2600)
             {
                 cont = 0;
             }
