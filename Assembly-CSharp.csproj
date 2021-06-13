@@ -60,6 +60,7 @@
   <ItemGroup>
      <Compile Include="Assets\Models\Mountain Terrain\Misc\CameraDefault.cs" />
      <Compile Include="Assets\Scripts\CameraController.cs" />
+     <Compile Include="Assets\Scripts\ChangeSoundVillage.cs" />
      <Compile Include="Assets\Scripts\DoorMovement.cs" />
      <Compile Include="Assets\Scripts\DragonMovement.cs" />
      <Compile Include="Assets\Scripts\DragonSphere.cs" />
@@ -71,19 +72,8 @@
      <Compile Include="Assets\Scripts\Inventory\ManagerStatus.cs" />
      <Compile Include="Assets\Scripts\Inventory\Managers.cs" />
      <Compile Include="Assets\Scripts\Inventory\PlayerManager.cs" />
-     <Compile Include="Assets\Scripts\Old Script\BasicUI.cs" />
-     <Compile Include="Assets\Scripts\Old Script\FPSInput.cs" />
-     <Compile Include="Assets\Scripts\Old Script\Fireball.cs" />
-     <Compile Include="Assets\Scripts\Old Script\MouseLook.cs" />
-     <Compile Include="Assets\Scripts\Old Script\PlayerCharacter.cs" />
-     <Compile Include="Assets\Scripts\Old Script\RayShooter.cs" />
-     <Compile Include="Assets\Scripts\Old Script\ReactiveTarget.cs" />
-     <Compile Include="Assets\Scripts\Old Script\SceneControllerN.cs" />
-     <Compile Include="Assets\Scripts\Old Script\WanderingAI.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\PlayerSphere.cs" />
-     <Compile Include="Assets\Scripts\ToRewiew\OrbitCamera.cs" />
-     <Compile Include="Assets\Scripts\ToRewiew\PlayerOrbitMovement2.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>/home/marco/Scrivania/Virtual Reality/DragonSword/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>

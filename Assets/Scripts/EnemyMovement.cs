@@ -2,34 +2,43 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = System.Random;
 
 public class EnemyMovement : MonoBehaviour
 {
-    [SerializeField] private float detectingPlayerDistance;
-    [SerializeField] private float hittingPlayerDistance;
-
+    public float lifePoints;
+    
+    private NavMeshAgent agent;
+    private float detectingPlayerDistance;
+    private float hittingPlayerDistance;
+    private Vector3[] points;
+    private int destPoint;
     private Vector3 moveDirection;
     private Animator animator;
-    
-    public NavMeshAgent agent;
-    
     private GameObject player;
-    
-    public float lifePoints;
     private bool demaging;
     private bool attack;
     private bool die;
-    
-    
-    
+    private Random random;
+
     void Start()
     {
+        detectingPlayerDistance = 12;
+        hittingPlayerDistance = 2;
         animator = GetComponentInChildren<Animator>();
         attack = false;
         player = GameObject.Find("Player");
         lifePoints = 100;
         demaging = false;
         die = false;
+        destPoint = 0;
+        agent = GetComponent<NavMeshAgent>();
+        points = new Vector3[4];
+        points[0] = transform.position + new Vector3(10, 0, 0);
+        points[1] = transform.position + new Vector3(-10, 0, 0);
+        points[2] = transform.position + new Vector3(0, 0, 10);
+        points[3] = transform.position + new Vector3(0, 0, -10);
+        random = new Random();
     }
 
     void Update()
@@ -69,8 +78,14 @@ public class EnemyMovement : MonoBehaviour
                 }
                 else
                 {
+                    agent.destination = points[destPoint];
+
+                    if (Vector3.Distance(transform.position, points[destPoint]) < 2f)
+                    {
+                       destPoint = (destPoint + random.Next(1, points.Length)) % points.Length;
+                    }
                     
-                    Idle();
+                    // Idle();
                 }
             }
         }

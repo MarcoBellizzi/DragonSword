@@ -8,16 +8,20 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float walkSpeed;
     [SerializeField] private float runSpeed;
     [SerializeField] private GameObject sferaPrefab;
+    [SerializeField] private AudioClip suonoSfera;
+    [SerializeField] private AudioClip sottofondoRilassante;
+    
+    public float lifePoints;
+    public Slider healthBar;
+    public Text text;
+    public bool lanciata;
+    
     private GameObject sfera;
     private float moveSpeed;
     private Vector3 moveDirection;
     private CharacterController controller;
     private Animator animator;
     private bool isAttacking;
-    public float lifePoints;
-    public Slider healthBar;
-    public Text text;
-    public bool lanciata;
 
     void Start()
     {
@@ -28,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
         isAttacking = false;
         text.text = "0";
         lanciata = false;
+        GetComponent<AudioSource>().PlayOneShot(sottofondoRilassante);
     }
     
     void Update()
@@ -43,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
         {
             lanciata = true;
             sfera = Instantiate(sferaPrefab, transform.position + transform.TransformDirection(new Vector3(0, 1, 0)), GameObject.Find("Main Camera").transform.rotation);
+            GetComponent<AudioSource>().PlayOneShot(suonoSfera);
         }
 
         if (Input.GetKeyDown(KeyCode.H) && Managers.Inventory.GetItemCount("Salute") > 0)
@@ -126,4 +132,8 @@ public class PlayerMovement : MonoBehaviour
         isAttacking = false;
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log(other.name);
+    }
 }

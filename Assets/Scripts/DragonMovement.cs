@@ -6,17 +6,20 @@ using UnityEngine.UI;
 public class DragonMovement : MonoBehaviour
 {
     [SerializeField] private GameObject sferaPrefab;
+    [SerializeField] private AudioClip clip;
+
+    public Animator animator;
+    public bool svegliato;
+    public NavMeshAgent agent;
+    public Slider healthBar;
+    public float lifePoints;
+    
     private GameObject sfera1;
     private GameObject sfera2;
     private ParticleSystem fire;
-    public Animator animator;
     private GameObject player;
-    public bool svegliato;
     private bool attacking;
-    public NavMeshAgent agent;
     private int cont;
-    public Slider healthBar;
-    public float lifePoints;
 
     void Start()
     {
@@ -40,6 +43,8 @@ public class DragonMovement : MonoBehaviour
             healthBar.gameObject.SetActive(true);
             animator.SetTrigger("svegliati");
             svegliato = true;
+            GameObject.Find("Player").GetComponent<AudioSource>().Stop();
+            GameObject.Find("Player").GetComponent<AudioSource>().PlayOneShot(clip);
         }
 
         if (svegliato)
