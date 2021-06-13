@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject sferaPrefab;
     [SerializeField] private AudioClip suonoSfera;
     [SerializeField] private AudioClip sottofondoRilassante;
+    [SerializeField] private AudioClip salute;
     
     public float lifePoints;
     public Slider healthBar;
@@ -53,14 +54,16 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.H) && Managers.Inventory.GetItemCount("Salute") > 0)
         {
+            GetComponent<AudioSource>().PlayOneShot(salute);
             lifePoints += 20f;
             if (lifePoints > 100f)
             {
                 lifePoints = 100f;
             }
             Managers.Inventory.ConsumeItem("Salute");
-            text.text = Managers.Inventory.GetItemCount("Salute").ToString();
         }
+        
+        text.text = Managers.Inventory.GetItemCount("Salute").ToString();
         
         if (lifePoints > 60f)
         {
@@ -131,9 +134,5 @@ public class PlayerMovement : MonoBehaviour
         animator.SetLayerWeight(animator.GetLayerIndex("Attack"), 0);
         isAttacking = false;
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        Debug.Log(other.name);
-    }
+    
 }

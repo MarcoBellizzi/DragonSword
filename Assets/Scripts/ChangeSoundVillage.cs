@@ -27,6 +27,7 @@ public class ChangeSoundVillage : MonoBehaviour
         {
             GameObject.Find("Player").GetComponent<AudioSource>().Stop();
             GameObject.Find("Player").GetComponent<AudioSource>().PlayOneShot(clip);
+            changed = true;
         }
     }
 }
