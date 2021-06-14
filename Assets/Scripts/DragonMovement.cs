@@ -7,6 +7,7 @@ public class DragonMovement : MonoBehaviour
 {
     [SerializeField] private GameObject sferaPrefab;
     [SerializeField] private AudioClip clip;
+    [SerializeField] private GameObject panel;
 
     public Animator animator;
     public bool svegliato;
@@ -37,6 +38,14 @@ public class DragonMovement : MonoBehaviour
     void Update()
     {
 
+        if (lifePoints <= 0)
+        {
+            Time.timeScale = 0;
+            Cursor.lockState = CursorLockMode.None;
+            panel.transform.Find("Text").GetComponent<Text>().text = "HAI VINTO!!";
+            panel.SetActive(true);
+        }
+        
         healthBar.value = lifePoints;
         if (!svegliato && Vector3.Distance(transform.position, player.transform.position) < 15)
         {

@@ -11,11 +11,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private AudioClip suonoSfera;
     [SerializeField] private AudioClip sottofondoRilassante;
     [SerializeField] private AudioClip salute;
+    [SerializeField] private GameObject panel;
+    [SerializeField] private GameObject pausa;
     
     public float lifePoints;
     public Slider healthBar;
     public Text text;
     public bool lanciata;
+    public bool isPaused;
     
     private GameObject sfera;
     private float moveSpeed;
@@ -34,10 +37,17 @@ public class PlayerMovement : MonoBehaviour
         text.text = "0";
         lanciata = false;
         GetComponent<AudioSource>().PlayOneShot(sottofondoRilassante);
+        isPaused = false;
     }
     
     void Update()
     {
+        if (lifePoints <= 0)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            panel.SetActive(true);
+        }
+        
         Move() ;
 
         if (Input.GetKeyDown(KeyCode.Mouse0) && !isAttacking)
@@ -61,6 +71,14 @@ public class PlayerMovement : MonoBehaviour
                 lifePoints = 100f;
             }
             Managers.Inventory.ConsumeItem("Salute");
+        }
+
+        if (Input.GetKeyDown(KeyCode.P) && !isPaused)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            isPaused = true;
+            Time.timeScale = 0;
+            pausa.SetActive(true);
         }
         
         text.text = Managers.Inventory.GetItemCount("Salute").ToString();
