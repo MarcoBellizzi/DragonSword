@@ -8,7 +8,6 @@ public class InventoryManager : MonoBehaviour, IGameManager
     private Dictionary<string, int> _items;
     public void Startup()
     {
-   //     Debug.Log("Inventory manager starting...");
         _items = new Dictionary<string, int>();
         status = ManagerStatus.Started;
     }
@@ -20,7 +19,6 @@ public class InventoryManager : MonoBehaviour, IGameManager
         {
             itemDisplay += item.Key + "(" + item.Value + ") ";
         }
-  //      Debug.Log(itemDisplay);
     }
 
     public void AddItem(string name)

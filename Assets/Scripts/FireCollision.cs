@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+/*
+ * Script da attaccare al particole system che rappresenta il fuoco emesso dal drago
+ */
 public class FireCollision : MonoBehaviour
 {
     private ParticleSystem fire;
@@ -10,6 +13,7 @@ public class FireCollision : MonoBehaviour
         player = GameObject.Find("Player");
     }
 
+    // se il player si trova all'interno del fuoco perde vita
     private void OnTriggerStay(Collider other)
     {
         if (other.name.Equals("Player") && fire.isPlaying)

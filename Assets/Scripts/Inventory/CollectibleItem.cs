@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using UnityEngine;
 
+/*
+ *  Script da attaccare agli oggetti che si desidera inserire nell'inventory
+ */
 public class CollectibleItem : MonoBehaviour
 {
     [SerializeField] private string itemName;
@@ -8,7 +11,6 @@ public class CollectibleItem : MonoBehaviour
     {
         if (other.GetComponent<CharacterController>())
         {
-        //    Debug.Log("Item collected: " + itemName);
             Managers.Inventory.AddItem(itemName);
             Destroy(this.gameObject);
         }

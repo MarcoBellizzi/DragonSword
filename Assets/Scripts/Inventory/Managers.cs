@@ -4,7 +4,6 @@ using UnityEngine;
 
 [RequireComponent(typeof(PlayerManager))]
 [RequireComponent(typeof(InventoryManager))]
-
 public class Managers : MonoBehaviour
 {
     public static PlayerManager Player { get; private set; }
@@ -41,12 +40,7 @@ public class Managers : MonoBehaviour
                     numReady++;
                 }
             }
-            if (numReady > lastReady)
-            {
-     //           Debug.Log("Progress: " + numReady + "/" + numModules);
-            }
             yield return null;
         }
-   //     Debug.Log("All managers started up");
     }
 }

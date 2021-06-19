@@ -3,9 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Script usato per cambiare il sottofondo musicale
+ * quando il player esce dal villagio
+ */
 public class ChangeSoundVillage : MonoBehaviour
 {
-
+    // clip della foresta
     [SerializeField] private AudioClip clip;
 
     private bool changed;
@@ -15,16 +19,11 @@ public class ChangeSoundVillage : MonoBehaviour
         changed = false;
     }
 
-    
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (!changed)
         {
+            // stoppa la clip precedente del villaggio e fa partire quella della foresta
             GameObject.Find("Player").GetComponent<AudioSource>().Stop();
             GameObject.Find("Player").GetComponent<AudioSource>().PlayOneShot(clip);
             changed = true;
