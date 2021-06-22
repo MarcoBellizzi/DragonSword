@@ -52,7 +52,8 @@ public class PlayerMovement : MonoBehaviour
         random = new Random();
         
         // inizia a riprodurre la musica di sottofondo del villagio
-        GetComponent<AudioSource>().PlayOneShot(sottofondoRilassante);
+        GetComponent<AudioSource>().clip = sottofondoRilassante;
+        GetComponent<AudioSource>().Play();
         
         // assegna ad un nemico casuale la chiave per aprire il cancello
         EnemyMovement[] nemici = GameObject.FindObjectsOfType<EnemyMovement>();

@@ -25,7 +25,8 @@ public class ChangeSoundVillage : MonoBehaviour
         {
             // stoppa la clip precedente del villaggio e fa partire quella della foresta
             GameObject.Find("Player").GetComponent<AudioSource>().Stop();
-            GameObject.Find("Player").GetComponent<AudioSource>().PlayOneShot(clip);
+            GameObject.Find("Player").GetComponent<AudioSource>().clip = clip;
+            GameObject.Find("Player").GetComponent<AudioSource>().Play();
             changed = true;
         }
     }

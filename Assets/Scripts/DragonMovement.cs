@@ -66,7 +66,8 @@ public class DragonMovement : MonoBehaviour
             
             // cambia il sottofondo musicale 
             GameObject.Find("Player").GetComponent<AudioSource>().Stop();
-            GameObject.Find("Player").GetComponent<AudioSource>().PlayOneShot(clip);
+            GameObject.Find("Player").GetComponent<AudioSource>().clip = clip;
+            GameObject.Find("Player").GetComponent<AudioSource>().Play();
         }
 
         if (svegliato)

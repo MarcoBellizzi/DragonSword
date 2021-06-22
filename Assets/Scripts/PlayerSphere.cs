@@ -41,7 +41,8 @@ public class PlayerSphere : MonoBehaviour
                 movement.healthBar.gameObject.SetActive(true);
                 movement.animator.SetTrigger("svegliati");
                 GameObject.Find("Player").GetComponent<AudioSource>().Stop();
-                GameObject.Find("Player").GetComponent<AudioSource>().PlayOneShot(clip);
+                GameObject.Find("Player").GetComponent<AudioSource>().clip = clip;
+                GameObject.Find("Player").GetComponent<AudioSource>().Play();
             }
             
             movement.lifePoints -= 20;

@@ -2054,15 +2054,15 @@ RectTransform:
   m_GameObject: {fileID: 165457985}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2736, y: 0.7085583, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1101167092}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 155.3, y: -52.2}
-  m_SizeDelta: {x: 159.57632, y: 30}
+  m_AnchoredPosition: {x: 63.381, y: -46.5}
+  m_SizeDelta: {x: 25.78196, y: 17.873016}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &165457987
 MonoBehaviour:
@@ -2090,13 +2090,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Numero delle saluti
+  m_Text: 0
 --- !u!222 &165457988
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3360,7 +3360,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: 0.3547821, y: 4.9865}
+  m_AnchoredPosition: {x: 0.35479736, y: 4.9865}
   m_SizeDelta: {x: 0.70358276, y: -10.027336}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &339675231
@@ -5233,7 +5233,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 575537784}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 106.4438, y: 0, z: 121.03143}
+  m_LocalPosition: {x: 106.4438, y: -0.02, z: 121.03143}
   m_LocalScale: {x: 50, y: 1, z: 50}
   m_Children: []
   m_Father: {fileID: 82415776}
@@ -5782,15 +5782,15 @@ RectTransform:
   m_GameObject: {fileID: 630304024}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.04, y: 0.05, z: 1}
   m_Children: []
   m_Father: {fileID: 1101167092}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -372.34018, y: 97.99605}
-  m_SizeDelta: {x: 31.162117, y: 23.722637}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 27.659973, y: -77.399994}
+  m_SizeDelta: {x: 753, y: 331}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &630304026
 MonoBehaviour:
@@ -6720,8 +6720,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 44, y: -12}
-  m_SizeDelta: {x: 254.71768, y: 27.58928}
+  m_AnchoredPosition: {x: -0.000014782, y: -8.3}
+  m_SizeDelta: {x: 157.50333, y: 23.538681}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &682308152
 MonoBehaviour:
@@ -6749,7 +6749,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -8047,10 +8047,10 @@ RectTransform:
   m_Father: {fileID: 1101167092}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -233.9, y: 93.15}
-  m_SizeDelta: {x: 219.77374, y: 26.295425}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 63.381, y: -77.4}
+  m_SizeDelta: {x: 25.78196, y: 21.300209}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &812857389
 MonoBehaviour:
@@ -8078,13 +8078,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Numero delle chiavi
+  m_Text: 0
 --- !u!222 &812857390
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8550,7 +8550,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -120, y: -42}
+  m_AnchoredPosition: {x: -120, y: -44}
   m_SizeDelta: {x: 166.44696, y: 36.359436}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &867063185
@@ -9873,7 +9873,7 @@ MonoBehaviour:
   sferaPrefab: {fileID: 4102299757551679759, guid: e772d0407f9dc17f88096c89e8cf3349,
     type: 3}
   suonoSfera: {fileID: 8300000, guid: 54233919d093860ddb6e7ddee84d7030, type: 3}
-  sottofondoRilassante: {fileID: 8300000, guid: 24f0379f2dd6e47b2855e89d2719d85c,
+  sottofondoRilassante: {fileID: 8300000, guid: 5a77c8985d9ae8a249fc088db7657f8f,
     type: 3}
   salute: {fileID: 8300000, guid: 456c191a229a37d9ab581843fa0964a3, type: 3}
   panel: {fileID: 1074176815}
@@ -9911,7 +9911,8 @@ AudioSource:
   m_GameObject: {fileID: 975283433}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 290462131008ecd4b91e1a9932afd6a8,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -10442,15 +10443,15 @@ RectTransform:
   m_GameObject: {fileID: 1018522490}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_LocalScale: {x: 0.03, y: 0.03, z: 1}
   m_Children: []
   m_Father: {fileID: 1101167092}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 24.700012, y: -46.5}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 27.659973, y: -46.5}
+  m_SizeDelta: {x: 860, y: 790}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1018522492
 MonoBehaviour:
@@ -11626,7 +11627,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -120, y: -42}
+  m_AnchoredPosition: {x: -120, y: -48.499996}
   m_SizeDelta: {x: 166.44696, y: 36.359436}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1108078325
@@ -11819,7 +11820,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4, y: -8}
+  m_AnchoredPosition: {x: -0.000013351, y: -5.8}
   m_SizeDelta: {x: 128.13324, y: 26.09871}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1112737599
@@ -11848,7 +11849,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -13682,7 +13683,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 84, y: -42}
+  m_AnchoredPosition: {x: 113, y: -44}
   m_SizeDelta: {x: 166.44696, y: 36.359436}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1367462575
@@ -14182,7 +14183,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.013}
   m_AnchorMin: {x: 0, y: 0.2646035}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: 0.35331726, y: -1.1000004}
+  m_AnchoredPosition: {x: 0.35333252, y: -1.1000004}
   m_SizeDelta: {x: 0.7006531, y: -0.2763443}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1389307414
@@ -15178,9 +15179,9 @@ RectTransform:
   m_Father: {fileID: 1101167092}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 522, y: -22}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -188, y: -22}
   m_SizeDelta: {x: 263.29822, y: 53.16356}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1511683292
@@ -22407,7 +22408,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 84, y: -42}
+  m_AnchoredPosition: {x: 122.9, y: -48.5}
   m_SizeDelta: {x: 166.44696, y: 36.359436}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1775637976
@@ -24092,7 +24093,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.032440186, y: 0.1421299}
+  m_AnchoredPosition: {x: 0.032409668, y: 0.1421299}
   m_SizeDelta: {x: -1.5068054, y: -3.4314022}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1951779350
@@ -25814,8 +25815,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -223.1, y: 25.888}
-  m_SizeDelta: {x: 413.05457, y: 176.8152}
+  m_AnchoredPosition: {x: -246.3, y: 16.472}
+  m_SizeDelta: {x: 459.39722, y: 157.90929}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7280263024711373706
 MonoBehaviour:
@@ -25899,7 +25900,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0.006052793, y: 0, z: 0, w: 0}
+  m_margin: {x: 0.006082665, y: 0.000018704497, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -26005,10 +26006,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 7280263024711373706}
   lines:
-  - "Non molto tempo fa, il Regno dei Cavalieri a seguito di un violento attacco
-    del Grande Drago, and\xF2 perso."
-  - "Molti cavalieri soccombero al violento attacco, ma fortunatamente il pi\xF9
-    piccolo della dinastia fu salvato."
+  - "Un tempo abitato da valorosi cavalieri, il Regno dei Cavalieri and\xF2 perso
+    in seguito all\u2019attacco di una creatura malvagia, il Grande Drago."
+  - I cavalieri non riuscirono a difendere il regno e soccombero alle numerose palle
+    di fuoco scagliate dal drago.
+  - "Il saggio del regno dei cavalieri, approfittando della situazione di confusione,
+    durante l\u2019attacco riusc\xEC a mettere in salvo l\u2019ancora neonato figlio
+    del re,"
+  - "unico possessore dei poteri magici, l\u2019unica arma in grado di sconfiggere
+    e uccidere il drago e i suoi scheletri protettori."
+  - "Secondo un vecchio libro, solo uccidendo tutti gli scheletri protettori apparir\xE0
+    la Chiave Antica che apre la porta del castello."
+  - Crescendo il giovane cavaliere viene a conoscenaza dei fatti e decide di portare
+    a termine il compito affidatogli e riportare una volta per tutte la pace nel
+    regno.
+  - Usa i tasti W e S per spostarti avanti e indietro, tieni premuto il tasto Shift
+    se vuoi mouverti piu velocemente.
+  - Con il mouse sposti la visuale, con il tasto destro usi la spada e con quello
+    sinistro lanci la bolla d'energia.
+  - Con il tasto H usi le pozioni curative e con il tasto P metti il gioco in pausa.
+  - UCCIDI IL DRAGO E AIUTA IL CAVALIERE A COMPIERE LA SUA VENDETTA E RICONQUISTARE
+    IL REGNO !!!
   textSpeed: 0.1
 --- !u!1 &7280263026030147316
 GameObject:
@@ -26044,7 +26062,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -136.8, y: 31.9}
+  m_AnchoredPosition: {x: -107, y: 25}
   m_SizeDelta: {x: 205.46442, y: 39.7519}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7280263026030147318
@@ -26159,8 +26177,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 84, y: 0.000014782}
-  m_SizeDelta: {x: 155.04144, y: 178.21497}
+  m_AnchoredPosition: {x: 67, y: -0.0000023842}
+  m_SizeDelta: {x: 116.07147, y: 190.85388}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &7709333608483673632
 GameObject:
