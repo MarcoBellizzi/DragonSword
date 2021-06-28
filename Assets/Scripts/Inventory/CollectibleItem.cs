@@ -11,6 +11,10 @@ public class CollectibleItem : MonoBehaviour
     {
         if (other.GetComponent<CharacterController>())
         {
+            if (itemName == "Key")
+            {
+                
+            }
             Managers.Inventory.AddItem(itemName);
             Destroy(this.gameObject);
         }

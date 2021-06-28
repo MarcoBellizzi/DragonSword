@@ -26,7 +26,6 @@ public class PlayerMovement : MonoBehaviour
     public float lifePoints;
     public Slider healthBar;
     public Text text;
-    public Text chiavi;
     public bool lanciata;
     public bool isPaused;
     
@@ -36,7 +35,6 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController controller;
     private Animator animator;
     private bool isAttacking;
-    private Random random;
 
     void Start()
     {
@@ -46,19 +44,12 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
         isAttacking = false;
         text.text = "0";
-        chiavi.text = "0";
         lanciata = false;
         isPaused = false;
-        random = new Random();
         
         // inizia a riprodurre la musica di sottofondo del villagio
         GetComponent<AudioSource>().clip = sottofondoRilassante;
         GetComponent<AudioSource>().Play();
-        
-        // assegna ad un nemico casuale la chiave per aprire il cancello
-        EnemyMovement[] nemici = GameObject.FindObjectsOfType<EnemyMovement>();
-        int num = random.Next(0, nemici.Length);
-        nemici[num].hasKey = true;
     }
     
     void Update()
@@ -110,7 +101,11 @@ public class PlayerMovement : MonoBehaviour
         
         // aggiorna i valori delle saluti e della chiave nell'interfaccia
         text.text = Managers.Inventory.GetItemCount("Salute").ToString();
-        chiavi.text = Managers.Inventory.GetItemCount("Key").ToString();
+
+        if (Managers.Inventory.GetItemCount("Key") == 1)
+        {
+            GameObject.Find("HUD").transform.Find("Chiave").gameObject.SetActive(true);
+        } 
         
         if (lifePoints > 60f)
         {

@@ -50,6 +50,7 @@ public class EnemyMovement : MonoBehaviour
         die = false;
         destPoint = 0;
         agent = GetComponent<NavMeshAgent>();
+        animator.SetFloat("Speed", 0.5f);
         
         // i punti vengono generati a partire dalla posizione iniziale del nemico
         // in alto, in basso, a sinistra e a destra
@@ -98,7 +99,6 @@ public class EnemyMovement : MonoBehaviour
                 // se il player si trovo vicino lo insegue
                 if (Vector3.Distance(player.transform.position, transform.position) < detectingPlayerDistance)
                 {
-                    Walk();
                     agent.SetDestination(player.transform.position);
                 }
                 else
@@ -114,11 +114,6 @@ public class EnemyMovement : MonoBehaviour
                 }
             }
         }
-    }
-
-    private void Walk()
-    {
-        animator.SetFloat("Speed", 0.5f, 0.1f, Time.deltaTime);
     }
 
     private IEnumerator Attack()
