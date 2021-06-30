@@ -47,13 +47,13 @@ public class DragonMovement : MonoBehaviour
 
     void Update()
     {
-        if (lifePoints < 600f)
+        if (lifePoints < 1200f)
         {
             // la barra della vita diventa gialla
             healthBar.gameObject.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().color = Color.yellow;
         }
 
-        if (lifePoints < 300f)
+        if (lifePoints < 600f)
         {
             // la barra della vita diventa rossa
             healthBar.gameObject.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().color = Color.red;

@@ -1,4 +1,2 @@
 Base path: '/home/marco/Unity/Hub/Editor/2019.4.21f1/Editor/Data', plugins path '/home/marco/Unity/Hub/Editor/2019.4.21f1/Editor/Data/PlaybackEngines'
 Cmd: initializeCompiler
-Cmd: compileComputeKernel
-  api=18 insize=1897 outsize=6515 ok=1

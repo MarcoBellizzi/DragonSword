@@ -151,6 +151,9 @@ public class PlayerMovement : MonoBehaviour
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
         }
 
+        // essere sicuri sia a terra
+        transform.position = new Vector3(transform.position.x, 0, transform.position.z);
+
         // se si va in avanti o in dietro e non si preme Shift cammina
         if (moveDir != Vector3.zero && !Input.GetKey(KeyCode.LeftShift))
         {

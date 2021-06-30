@@ -624,6 +624,9 @@
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>/home/marco/Scrivania/Virtual Reality/DragonSword/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
+ <Reference Include="Cinemachine">
+ <HintPath>/home/marco/Scrivania/Virtual Reality/DragonSword/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.VSCode.Editor">
  <HintPath>/home/marco/Scrivania/Virtual Reality/DragonSword/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
  </Reference>
@@ -645,6 +648,9 @@
  <Reference Include="Unity.Sysroot.Linux_x86_64">
  <HintPath>/home/marco/Scrivania/Virtual Reality/DragonSword/Library/ScriptAssemblies/Unity.Sysroot.Linux_x86_64.dll</HintPath>
  </Reference>
+ <Reference Include="com.unity.cinemachine.editor">
+ <HintPath>/home/marco/Scrivania/Virtual Reality/DragonSword/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.Toolchain.Linux-x86_64">
  <HintPath>/home/marco/Scrivania/Virtual Reality/DragonSword/Library/ScriptAssemblies/Unity.Toolchain.Linux-x86_64.dll</HintPath>
  </Reference>
@@ -656,12 +662,6 @@
  </Reference>
  <Reference Include="UnityEditor.UI">
  <HintPath>/home/marco/Scrivania/Virtual Reality/DragonSword/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
- </Reference>
- <Reference Include="Cinemachine">
- <HintPath>/home/marco/Scrivania/Virtual Reality/DragonSword/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
- </Reference>
- <Reference Include="com.unity.cinemachine.editor">
- <HintPath>/home/marco/Scrivania/Virtual Reality/DragonSword/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
