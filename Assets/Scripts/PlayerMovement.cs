@@ -7,7 +7,7 @@ using Random = System.Random;
 /*
  * Script da attaccare al Player.
  *
- * Il player Si sposta in avanti e in dietro con i tasti W e S
+ * Il player si sposta con i tasti W A S D
  * Corre se si tiene premuto il tasto Shift
  * Con il tasto sinistro del mouse attacca con la spada
  * Con il tasto destro del mouse lascia una sfera che puo infliggere danno ai nemici se colpiti
@@ -28,6 +28,10 @@ public class PlayerMovement : MonoBehaviour
     public Text text;
     public bool lanciata;
     public bool isPaused;
+    public Transform cam;
+    public float speed = 6f;
+    public float turnSmoothTime = 0.1f;
+    public float turnSmoothVelocity;
     
     private GameObject sfera;
     private float moveSpeed;
@@ -131,31 +135,39 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
-        // prende da da input (W o S) la direzione dove si desidera andare
-        moveDirection = transform.TransformDirection(new Vector3(0, 0, Input.GetAxis("Vertical")));
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
+        Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
+
+        Vector3 moveDir = new Vector3();
+        
+        if (direction.magnitude >= 0.1f)
+        {
+            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+            transform.rotation = Quaternion.Euler(0f, angle, 0f);
+
+            moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+            controller.Move(moveDir.normalized * speed * Time.deltaTime);
+        }
 
         // se si va in avanti o in dietro e non si preme Shift cammina
-        if (moveDirection != Vector3.zero && !Input.GetKey(KeyCode.LeftShift))
+        if (moveDir != Vector3.zero && !Input.GetKey(KeyCode.LeftShift))
         {
-            moveSpeed = walkSpeed;
+            speed = walkSpeed;
             animator.SetFloat("Speed", 0.5f, 0.1f, Time.deltaTime);
-        } 
-        else if (moveDirection != Vector3.zero && Input.GetKey(KeyCode.LeftShift))
+        }
+        else if (moveDir != Vector3.zero && Input.GetKey(KeyCode.LeftShift))
         {
             // se si va in avanti o in dietro e si preme Shift corre
-            moveSpeed = runSpeed;
+            speed = runSpeed;
             animator.SetFloat("Speed", 1, 0.1f, Time.deltaTime);
-        } 
-        else if (moveDirection == Vector3.zero)
+        }
+        else if (moveDir == Vector3.zero)
         {
             // non si desidera muoversi il player resta fermo
             animator.SetFloat("Speed", 0, 0.1f, Time.deltaTime);
         }
-            
-        moveDirection *= moveSpeed;
-        moveDirection += new Vector3(0, -5f, 0);
-        controller.Move(moveDirection * Time.deltaTime);
-
     }
 
     private IEnumerator Attack()

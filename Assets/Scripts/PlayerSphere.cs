@@ -17,7 +17,7 @@ public class PlayerSphere : MonoBehaviour
     void Update()
     {
         // la sfera si sposta in avanti
-        transform.Translate(new Vector3(0,0,0.4f));
+        transform.Translate(new Vector3(0,0,18f) * Time.deltaTime);
 
         // se le sfera si allontana troppo dal player, viene sitrutta
         if (Vector3.Distance(transform.position, _player.transform.position) > 50)
@@ -40,7 +40,6 @@ public class PlayerSphere : MonoBehaviour
                 movement.svegliato = true;
                 movement.healthBar.gameObject.SetActive(true);
                 movement.animator.SetTrigger("svegliati");
-                GameObject.Find("Player").GetComponent<AudioSource>().Stop();
                 GameObject.Find("Player").GetComponent<AudioSource>().clip = clip;
                 GameObject.Find("Player").GetComponent<AudioSource>().Play();
             }

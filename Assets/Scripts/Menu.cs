@@ -12,6 +12,7 @@ public class Menu : MonoBehaviour
     // Carica la scena del videogioco
     public void PlayGame()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("Game");
     }
     

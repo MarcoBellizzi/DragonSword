@@ -8,7 +8,7 @@ public class DragonSphere : MonoBehaviour
     void Update()
     {
         // la palla di fuoco si sposta in avanti
-        transform.Translate(new Vector3(0,0,0.5f));
+        transform.Translate(new Vector3(0,0,18f) * Time.deltaTime);
     }
 
     private void OnTriggerEnter(Collider other)

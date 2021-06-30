@@ -657,6 +657,12 @@
  <Reference Include="UnityEditor.UI">
  <HintPath>/home/marco/Scrivania/Virtual Reality/DragonSword/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
+ <Reference Include="Cinemachine">
+ <HintPath>/home/marco/Scrivania/Virtual Reality/DragonSword/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
+ </Reference>
+ <Reference Include="com.unity.cinemachine.editor">
+ <HintPath>/home/marco/Scrivania/Virtual Reality/DragonSword/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
+ </Reference>
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>

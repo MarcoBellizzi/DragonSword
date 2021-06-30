@@ -36,6 +36,7 @@ public class DoorMovement : MonoBehaviour
         {
             // consuma la chiave e inizia a far abbassare la porta
             Managers.Inventory.ConsumeItem("Key");
+            GameObject.Find("Player").GetComponent<AudioSource>().Stop();
             GameObject.Find("Player").GetComponent<AudioSource>().PlayOneShot(clip);
             apri = true;
         }
